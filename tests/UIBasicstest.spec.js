@@ -14,7 +14,7 @@ test.describe('First group of tests', ()=>{
         await page.goto('https://playwright.dev/');
     
         //click the get started link.
-        await page.getByRole('link', {name: 'Get tarted'}).click();
+        await page.getByRole('link', {name: 'Get started'}).click();
     
         //Expects the URL to contain intro.
         await expect(page).toHaveURL(/.*intro/);
