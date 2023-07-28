@@ -12,6 +12,15 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
+  /**Maximum time one test can run for. */
+  timeout: 60 * 1000,
+  expect:{
+    /**
+     * Maximum time expect() should wait for the condition to be met.
+     * For example in 'await expect(locator).toHaveText();'
+     */
+    timeout: 5000
+  },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,6 +38,7 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    headless: false // we can see the flow of the testing...
   },
 
   /* Configure projects for major browsers */
